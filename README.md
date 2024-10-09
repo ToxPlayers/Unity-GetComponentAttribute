@@ -10,10 +10,13 @@ public class TestScript : MonoBehaviour
     [SerializeField, GetChild] Collider _childCollider;
     [SerializeField, GetParent] ParticleSystem _parentParticles;
 
+
+    [SerializeField, Get] Canvas _nullComp; 
+    [SerializeField, Get(Required = true)] Canvas _nullCompWithWarning; 
+
     //errors
-    [SerializeField, Get] float _speed;
-    [SerializeField, Get] ScriptableObject _scriptableObject;
+    [SerializeField, Get] int _value;
+    [SerializeField, GetChild] ScriptableObject _scriptable;
 }
 ```
-
-![cfc2916e6d02075182077b020f89b272](https://github.com/user-attachments/assets/e2896021-843f-4153-a035-a5f7dd15cf89)
+![image](https://github.com/user-attachments/assets/b6f51038-6294-439e-9c61-e1b553eba294)
