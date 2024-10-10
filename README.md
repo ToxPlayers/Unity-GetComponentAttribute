@@ -21,4 +21,4 @@ public class TestScript : MonoBehaviour
     [SerializeField, GetChild] ScriptableObject _scriptable;
 }
 ```
-![image](https://github.com/user-attachments/assets/061b634d-2b7e-4106-9151-955523183d6a)
+![image](https://github.com/user-attachments/assets/71087fa8-0c0d-411a-b6bd-8f968d67bae6)
