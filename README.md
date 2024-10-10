@@ -1,6 +1,8 @@
 # Unity-GetComponentAttribute
-Automatically get components in the editor using an attribute
-Using property drawers
+Automatically get components in the editor using an attribute.
+</br> Fast, does not enumerate reflection fields.
+</br> Uses Unity's property drawers.
+</br> Use with [SerializeField] to save them.
 
 # Example
 ```c#
@@ -19,4 +21,4 @@ public class TestScript : MonoBehaviour
     [SerializeField, GetChild] ScriptableObject _scriptable;
 }
 ```
-![image](https://github.com/user-attachments/assets/b6f51038-6294-439e-9c61-e1b553eba294)
+![image](https://github.com/user-attachments/assets/061b634d-2b7e-4106-9151-955523183d6a)
