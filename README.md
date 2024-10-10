@@ -2,7 +2,7 @@
 Automatically get components in the editor using an attribute.
 </br> Fast, does not enumerate reflection fields.
 </br> Uses Unity's property drawers.
-</br> Use with [SerializeField] to save them.
+</br> Add [SerializeField] to save them.
 
 # Example
 ```c#
