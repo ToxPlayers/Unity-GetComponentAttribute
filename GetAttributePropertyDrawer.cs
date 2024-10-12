@@ -48,7 +48,7 @@ namespace UnityEngine
             var wrongPropType = property.propertyType != SerializedPropertyType.ObjectReference;
 
             if (Application.isPlaying || (!wrongPropType && property.objectReferenceValue != null))
-                return false;
+                return true;
 
             var targetObj = property.serializedObject.targetObject;
             var comp = targetObj as Component;
