@@ -36,12 +36,12 @@ namespace UnityEngine
         }
 
         void DrawDefault(Rect rect, SerializedProperty property, GUIContent label)
-        {
-            property.serializedObject.Update();
+        { 
             EditorGUI.PropertyField(rect, property, label, true);
-            property.serializedObject.ApplyModifiedProperties();
+            if (property.serializedObject.hasModifiedProperties)
+                property.serializedObject.ApplyModifiedProperties();
         }
-        protected bool CheckShouldFindComp(SerializedProperty property, out string invalidErrors, out GameObject ownerGo)
+        protected bool ShouldntFindComp(SerializedProperty property, out string invalidErrors, out GameObject ownerGo)
         {
             ownerGo = null;
             invalidErrors = null;
@@ -105,7 +105,7 @@ namespace UnityEngine
         {
             _msgShown = false;
             _msgRectHeight = 0;
-            if (CheckShouldFindComp(property, out string error, out GameObject ownerGo))
+            if (ShouldntFindComp(property, out string error, out GameObject ownerGo))
             {
                 if (error != null)
                     DrawMsgBox(rect, property, error, true);
@@ -114,7 +114,6 @@ namespace UnityEngine
             }
 
             bool isPropertyValueNull = property.objectReferenceValue == null;
-            property.serializedObject.Update();
             if (isPropertyValueNull)
             {
                 var foundComponent = FindComponentAction(ownerGo, fieldInfo.FieldType);
@@ -127,7 +126,8 @@ namespace UnityEngine
                     DrawMsgBox(rect, property, warnMsg, false);
                 }
             }
-            property.serializedObject.ApplyModifiedProperties();
+            if(property.serializedObject.hasModifiedProperties)
+                property.serializedObject.ApplyModifiedProperties();
             EditorGUI.PropertyField(rect, property, label, true);
         }
 
